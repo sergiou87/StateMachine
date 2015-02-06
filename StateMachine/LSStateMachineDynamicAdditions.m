@@ -3,6 +3,7 @@
 #import "LSStateMachineDynamicAdditions.h"
 #import "LSStateMachine.h"
 #import "LSEvent.h"
+#import "LSTransition.h"
 
 #import <objc/runtime.h>
 
@@ -16,13 +17,19 @@ BOOL LSStateMachineTriggerEvent(id self, SEL _cmd) {
     NSString *currentState = [self performSelector:@selector(state)];
     LSStateMachine *sm = [[self class] performSelector:@selector(stateMachine)];
     NSString *eventName = NSStringFromSelector(_cmd);
-    NSString *nextState = [sm nextStateFrom:currentState forEvent:eventName];
+    LSTransition *transition = [sm transitionFrom:currentState forEvent:eventName];
+    NSString *nextState = transition.to;
     if (nextState) {
         LSEvent *event = [sm eventWithName:eventName];
         NSArray *beforeCallbacks = event.beforeCallbacks;
         for (void(^beforeCallback)(id) in beforeCallbacks) {
             beforeCallback(self);
         }
+
+        if (transition.callback) {
+            transition.callback(self);
+        }
+
         [self performSelector:@selector(setState:) withObject:nextState];
         
         NSArray *afterCallbacks = event.afterCallbacks;

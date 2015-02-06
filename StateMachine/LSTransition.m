@@ -1,14 +1,15 @@
 #import "LSTransition.h"
 
 @implementation LSTransition
-+ (id)transitionFrom:(NSString *)from to:(NSString *)to {
-    return [[self alloc] initFrom:from to:to];
++ (id)transitionFrom:(NSString *)from to:(NSString *)to do:(LSStateMachineTransitionCallback)callback {
+    return [[self alloc] initFrom:from to:to do:callback];
 }
-- (id)initFrom:(NSString *)from to:(NSString *)to {
+- (id)initFrom:(NSString *)from to:(NSString *)to do:(LSStateMachineTransitionCallback)callback {
     self = [super init];
     if (self) {
         _from = [from copy];
         _to = [to copy];
+        _callback = callback;
     }
     return self;
 }
