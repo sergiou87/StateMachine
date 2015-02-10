@@ -26,12 +26,12 @@ BOOL LSStateMachineTriggerEvent(id self, SEL _cmd) {
             beforeCallback(self);
         }
 
+        [self performSelector:@selector(setState:) withObject:nextState];
+
         if (transition.callback) {
             transition.callback(self);
         }
 
-        [self performSelector:@selector(setState:) withObject:nextState];
-        
         NSArray *afterCallbacks = event.afterCallbacks;
         for (LSStateMachineTransitionCallback afterCallback in afterCallbacks) {
             afterCallback(self);
