@@ -50,6 +50,7 @@
 /* Begin PBXFileReference section */
 		1E77622C3F81426C94A2727E /* libPods-StateMachineTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StateMachineTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBE849696034C15B9965570 /* Pods-StateMachineTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StateMachineTests.xcconfig"; path = "Pods/Pods-StateMachineTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		40FDA57F1A8A3E2100EFE96A /* LSStateMachine_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSStateMachine_Internal.h; sourceTree = "<group>"; };
 		8D6F730116DC962D00A5A8F4 /* NSString+Capitalize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Capitalize.h"; sourceTree = "<group>"; };
 		8D6F730216DC962D00A5A8F4 /* NSString+Capitalize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Capitalize.m"; sourceTree = "<group>"; };
 		8DF481D517125AB600B4B5F9 /* NSString+CapitalizeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CapitalizeSpec.m"; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 			children = (
 				A001F2051630DB10002AEC31 /* Supporting Files */,
 				A066CFEB163D84D00061797C /* LSStateMachine.h */,
+				40FDA57F1A8A3E2100EFE96A /* LSStateMachine_Internal.h */,
 				A066CFEC163D84D00061797C /* LSStateMachine.m */,
 				A066CFF4163D90190061797C /* LSEvent.h */,
 				A066CFF5163D90190061797C /* LSEvent.m */,
@@ -219,7 +221,7 @@
 			name = StateMachineTests;
 			productName = StateMachineTests;
 			productReference = A001F2101630DB11002AEC31 /* StateMachineTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 

@@ -2,7 +2,6 @@
 #import "LSStateMachineTypedefs.h"
 
 @class LSEvent;
-@class LSTransition;
 
 @interface LSStateMachine : NSObject
 @property (nonatomic, strong, readonly) NSSet *states;
@@ -17,6 +16,5 @@
 - (void)after:(NSString *)eventName do:(LSStateMachineTransitionCallback)callback;
 
 - (NSString *)nextStateFrom:(NSString *)from forEvent:(NSString *)event;
-- (LSTransition *)transitionFrom:(NSString *)from forEvent:(NSString *)eventName;
 
 @end

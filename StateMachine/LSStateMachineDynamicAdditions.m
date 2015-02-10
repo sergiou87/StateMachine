@@ -1,7 +1,7 @@
 #import "NSString+Capitalize.h"
 
 #import "LSStateMachineDynamicAdditions.h"
-#import "LSStateMachine.h"
+#import "LSStateMachine_Internal.h"
 #import "LSEvent.h"
 #import "LSTransition.h"
 
