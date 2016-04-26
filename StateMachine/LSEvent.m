@@ -31,7 +31,10 @@
 }
 
 - (LSEvent *)addTransition:(LSTransition *)transition {
-    return [LSEvent eventWithName:self.name transitions:[self.transitions setByAddingObject:transition]];
+    return [LSEvent eventWithName:self.name
+                      transitions:[self.transitions setByAddingObject:transition]
+                  beforeCallbacks:self.beforeCallbacks
+                   afterCallbacks:self.afterCallbacks];
 }
 
 - (LSEvent *)addBeforeCallback:(void(^)(id))beforeCallback {
@@ -45,7 +48,7 @@
     return [LSEvent eventWithName:self.name
                       transitions:self.transitions
                   beforeCallbacks:self.beforeCallbacks
-            afterCallbacks:[self.afterCallbacks arrayByAddingObject:afterCallback]];
+                   afterCallbacks:[self.afterCallbacks arrayByAddingObject:afterCallback]];
 }
 
 - (BOOL)isEqual:(id)object {
